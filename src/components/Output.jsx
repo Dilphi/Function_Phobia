@@ -15,7 +15,7 @@ export default function Output({editorRef, language}){
         try {
             setIsLoading(true);
             const {run:result} = await executeCode(language, code);
-            setOutput(result.output,ыздше("\n"));
+            setOutput(result.output.split("\n"));
             result.stderr ? setIsError(true) : setIsError(false);
         } catch (error) {
             console.error(error);
