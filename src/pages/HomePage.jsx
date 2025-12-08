@@ -6,7 +6,7 @@ export default function HomePage() {
     <Box p={8}>
       <VStack spacing={8} align="center">
         <VStack spacing={4} textAlign="center">
-          <Heading size="2xl" color="teal.300">Function Phobia</Heading>
+          <Heading size="2xl" color="yellow.300">Function Phobia</Heading>
           <Text fontSize="xl" color="gray.300">Изучай программирование через игру</Text>
         </VStack>
 
@@ -15,12 +15,12 @@ export default function HomePage() {
             <Card bg="gray.800" border="1px solid" borderColor="gray.700" h="100%">
               <CardBody>
                 <VStack spacing={6} align="start" h="100%">
-                  <Heading size="lg" color="blue.300">Песочница</Heading>
+                  <Heading size="lg" color="yellow.300">Песочница</Heading>
                   <Text color="gray.300">
                     Практикуйся в написании кода на разных языках программирования. Запускай код и сразу видишь результат.
                   </Text>
                   <Box flex={1} />
-                  <Button as={Link} to="/sandbox" colorScheme="blue" w="100%">Открыть песочницу</Button>
+                  <Button as={Link} to="/sandbox" colorScheme="yellow" w="100%">Открыть песочницу</Button>
                 </VStack>
               </CardBody>
             </Card>
@@ -41,7 +41,7 @@ export default function HomePage() {
         </Grid>
 
         <VStack spacing={4} maxW="800px" textAlign="center">
-          <Heading size="md" color="teal.200">Что ты найдешь в игре?</Heading>
+          <Heading size="md" color="yellow.200">Что ты найдешь в игре?</Heading>
           <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6} w="100%">
             <VStack spacing={2}>
               <Text fontWeight="bold">Постепенное обучение</Text>
