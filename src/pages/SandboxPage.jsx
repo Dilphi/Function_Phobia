@@ -6,7 +6,7 @@ export default function SandboxPage() {
     <Container maxW="container.xl" p={4}>
       <VStack spacing={6} align="stretch">
         <Box>
-          <Heading size="lg" color="blue.300" mb={2}>Песочница для программирования</Heading>
+          <Heading size="lg" color="yellow.300" mb={2}>Песочница для программирования</Heading>
           <Text color="gray.300">Выбери язык программирования и начни писать код. Нажми "Run code" чтобы увидеть результат.</Text>
         </Box>
         
@@ -14,7 +14,7 @@ export default function SandboxPage() {
           <CodeEditor />
         </Box>
 
-        <Box bg="gray.800" p={4} borderRadius="md" borderLeft="4px solid" borderColor="blue.500">
+        <Box bg="gray.800" p={4} borderRadius="md" borderLeft="4px solid" borderColor="yellow.500">
           <Text fontSize="sm" color="gray.300">
             Совет: Используй песочницу для экспериментов с кодом перед тем как 
             применять его в игре. Здесь ты можешь тестировать идеи без ограничений.
