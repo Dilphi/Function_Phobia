@@ -1,0 +1,82 @@
+/* styles.css */
+body {
+  background: #111;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Контейнер */
+.auth-container {
+  max-width: 420px;
+  background: #1e1e1e;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* Заголовки */
+.auth-title {
+  font-size: 26px;
+  color: #f4c430;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Формы */
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #2a2a2a;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.label {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #f4c430;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #ffda4f;
+}
+
+.link {
+  color: #f4c430;
+  text-decoration: none;
+}
+
+.error {
+  background: #ff4444;
+  padding: 10px;
+  color: #fff;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Переключатель видимости пароля */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  color: #bbb;
+}
+.password-wrapper {
+  position: relative;
+}
