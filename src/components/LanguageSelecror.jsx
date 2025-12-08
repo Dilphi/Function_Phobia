@@ -3,7 +3,7 @@ import { LANGUAGE_VERSIONS } from './constans.js'
 
 const Languages = Object.entries(LANGUAGE_VERSIONS);
 
-const ACTIVE_COLOR = "blue.500";
+const ACTIVE_COLOR = "yellow.500";
 
 const LanguageSelector = ({ language, onSelect }) => {
   return (
@@ -11,7 +11,7 @@ const LanguageSelector = ({ language, onSelect }) => {
       <Text mb={2} fontSize="lg">Language:</Text>
 
       <Menu isLazy>
-        <MenuButton as={Button} colorScheme="teal">
+        <MenuButton as={Button} colorScheme="yellow">
           {language}
         </MenuButton>
 
