@@ -14,27 +14,39 @@ export default function RegisterPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState('');
-  
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value});
     setError('');
+    console.log(`[INPUT] ${e.target.name}: ${e.target.value}`);
   };
 
   const validate = () => {
-    if (formData.password.length < 6)
-      return setError("Пароль должен содержать минимум 6 символов");
-    if (formData.password !== formData.confirmPassword)
-      return setError("Пароли не совпадают");
-    if (!acceptedTerms)
-      return setError("Необходимо принять условия");
+    if (formData.password.length < 6) {
+      setError("Пароль должен содержать минимум 6 символов");
+      console.warn('[VALIDATION] Пароль слишком короткий');
+      return false;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      setError("Пароли не совпадают");
+      console.warn('[VALIDATION] Пароли не совпадают');
+      return false;
+    }
+    if (!acceptedTerms) {
+      setError("Необходимо принять условия");
+      console.warn('[VALIDATION] Условия не приняты');
+      return false;
+    }
     return true;
   };
 
   const submit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+
+    console.log('[REGISTER] Отправка данных на сервер:', formData);
 
     try {
       const res = await fetch("http://localhost:3001/register", {
@@ -48,16 +60,21 @@ export default function RegisterPage() {
       });
 
       const data = await res.json();
-      
+      console.log('[REGISTER] Ответ сервера:', data);
+
       if (!res.ok) {
         setError(data.error || "Ошибка регистрации");
+        console.warn('[REGISTER] Ошибка регистрации:', data.error);
         return;
       }
 
       localStorage.setItem("userId", data.userId);
+      console.log('[REGISTER] Успешная регистрация, перенаправление на профиль:', data.userId);
+
       navigate(`/profile/${data.userId}`);
     } 
-    catch {
+    catch (err) {
+      console.error('[REGISTER] Ошибка соединения с сервером:', err);
       setError("Ошибка соединения с сервером");
     }
   };
@@ -87,8 +104,6 @@ export default function RegisterPage() {
         <label className="label">Подтверждение пароля</label>
         <div className="password-wrapper">
           <input className="input" type={showConfirm ? "text" : "password"} name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
-
-
           <span className="password-toggle" onClick={() => setShowConfirm(!showConfirm)}>
             {showConfirm ? "🙈" : "👁"}
           </span>
@@ -98,7 +113,10 @@ export default function RegisterPage() {
           <input
             type="checkbox"
             checked={acceptedTerms}
-            onChange={(e) => setAcceptedTerms(e.target.checked)}
+            onChange={(e) => {
+              setAcceptedTerms(e.target.checked);
+              console.log('[TERMS] Принятие условий:', e.target.checked);
+            }}
           /> Я принимаю условия
         </label>
 
